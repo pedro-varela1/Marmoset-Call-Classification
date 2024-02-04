@@ -35,8 +35,10 @@ Normalized confusion matrix of the model on validation data calls.
 
 ```python3 predict.py <data_dir> <out_dir> --plot_spec```
 
+* You don't need to modify predict.toml!
+
 > ```data_dir```: Directory containing the data to predict on (wav audio files).
 
-> ```out_dir```: Directory to save the outputs (preprocessed spectrograms and predictions). Must not exist.
+> ```out_dir```: Directory to save the outputs (preprocessed spectrograms and predictions). Two folders will be created: results to store the predictions (```predictions.csv``` and ```spect_plots``` for the spectrograms with the classifications if ```--plot_spec```) and data to store the preprocessed data that will serve as input for tweetynet.
 
 > ```--plot_spec```: Add to plot the spectrograms.

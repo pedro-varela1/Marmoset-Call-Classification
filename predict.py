@@ -28,7 +28,11 @@ def prepareToml(data_dir, out_dir):
 
     with open("predict.toml", "r") as f:
         lines = f.readlines()
+        section = "[PREP]"
         for i, line in enumerate(lines):
+            # Get the section of the toml file
+            if line.startswith("["):
+                section = line.strip()
             # Change data_dir section from toml file
             if line.startswith("data_dir"):
                 lines[i] = f"data_dir = '{data_dir}'\n"
@@ -37,15 +41,19 @@ def prepareToml(data_dir, out_dir):
             # Remove csv_path line if exists
             if line.startswith("csv_path"):
                 lines.pop(i)
-            # Create output directory
-            if line.startswith("output_dir") or line.startswith("spect_output_dir"):
-                arg, dir = line.split('=')
-                dir = dir.strip().strip('"') 
-                arg = arg.strip()
-                dir = os.path.join(out_dir, dir)
-                lines[i] = f"{arg} = '{dir}'\n"
+            # Write the output directory
+            if line.startswith("output_dir"):
+                if section == "[PREP]":
+                    dir = os.path.join(out_dir, "data/preprocessed")
+                if section == "[PREDICT]":
+                    dir = os.path.join(out_dir, "results/predictions")
+                lines[i] = f"output_dir = '{dir}'\n"
                 os.makedirs(dir)
-
+            if line.startswith("spect_output_dir"):
+                dir = os.path.join(out_dir, "data/preprocessed/spec")
+                lines[i] = f"spect_output_dir = '{dir}'\n"
+                os.makedirs(dir)
+            
     # Write the changes to the toml file
     with open("predict.toml", "w") as f:
         f.writelines(lines)
@@ -57,7 +65,7 @@ if __name__ == "__main__":
                         help="Directory containing the data to predict on.",
                         type=str)
     parser.add_argument("out_dir",
-                        help="Directory to save the outputs. Must not exist.",
+                        help="Directory to save the outputs.",
                         type=str)
     parser.add_argument("--plot_spec",
                         help="Plot the spectrograms.",
@@ -73,10 +81,9 @@ if __name__ == "__main__":
         raise ValueError(f"{data_dir} does not exist")
     
     # Create directory for output
-    try:
-        os.makedirs(out_dir)
-    except FileExistsError:
-        raise ValueError(f"{out_dir} already exists")
+    # with now hour
+    out_dir = os.path.join(out_dir, "outputs_"+time.strftime("%Y%m%d_%H%M%S"))
+    os.makedirs(out_dir)
 
     # Prepare the toml file
     prepareToml(data_dir, out_dir)

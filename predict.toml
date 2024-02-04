@@ -1,8 +1,8 @@
 [PREP]
-data_dir = "J:\\\\test\\\\data\\\\LRTwin2_1"
-output_dir = "output\\outputs\\\\data/preprocessed"
+data_dir = "path/to/data"
+output_dir = "path/to/save/prep/csv"
 audio_format = "wav"
-spect_output_dir = "output\\outputs\\\\data/preprocessed/spec"
+spect_output_dir = "path/to/save/prep/spec"
 
 [SPECT_PARAMS]
 fft_size = 1024
@@ -25,9 +25,8 @@ batch_size = 128
 checkpoint_path = "model/TweetyNet/checkpoints/max-val-acc-checkpoint.pt"
 labelmap_path = "model/labelmap.json"
 spect_scaler_path = "model/StandardizeSpect"
-output_dir = "output\\outputs\\\\results/predictions"
+output_dir = "path/to/save/predictions"
 annot_csv_filename = "predictions.csv"
-csv_path = "output\\outputs\\data\\preprocessed\\LRTwin2_1_prep_240203_211401.csv"
 
 [TweetyNetModel.network]
 hidden_size = 512
