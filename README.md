@@ -1,6 +1,6 @@
 # Marmoset Call Classification
 
-Classification of marmoset calls using [tweetynet](https://github.com/yardencsGitHub/tweetynet.git). Check out more at [poster](model/poster.pdf).
+Classification of marmoset calls using [tweetynet](https://github.com/yardencsGitHub/tweetynet.git). Check out more at [poster](performance_pics/poster.pdf).
 
 Development of the [MarmosetCallClassification](https://github.com/kalleknast/MarmosetCallClassification.git) work.
 
@@ -19,13 +19,13 @@ Performance of the TweetyNet model trained on marmoset vocalizations*:
 ### Training metrics for validation data
 
 Accuracy of the model as a function of the time of trained audios.
-![Accuracy](model/performance_pics/acc.png)
+![Accuracy](performance_pics/acc.png)
 
 Average error of the model as a function of the time of trained audios.
-![Loss](model/performance_pics/loss.png)
+![Loss](performance_pics/loss.png)
 
 Normalized confusion matrix of the model on validation data calls.
-![Confusion Matrix](model/performance_pics/confusion_matrix.png)
+![Confusion Matrix](performance_pics/confusion_matrix.png)
 
 ## Installation
 
