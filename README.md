@@ -14,6 +14,8 @@ Performance of the TweetyNet model trained on marmoset vocalizations*:
 |---------|------|-----|
 | 0.9584 | 0.1472 | 0.2821 |
 
+* Recorded and labeled by Daniel Y. Takahashi and colleauges. See [Takahashi, D. Y., Fenley, A. R., Teramoto, Y., Narayanan, D. Z., Borjon, J. I., Holmes, P., & Ghazanfar, A. A. (2015). The developmental dynamics of marmoset monkey vocal production. Science, 349(6249), 734-738.](https://doi.org/10.1126/science.aab1058) for details
+
 ### Training metrics for validation data
 
 Accuracy of the model as a function of the time of trained audios.
@@ -24,8 +26,6 @@ Average error of the model as a function of the time of trained audios.
 
 Normalized confusion matrix of the model on validation data calls.
 ![Confusion Matrix](model/performance_pics/confusion_matrix.png)
-
-* Recorded and labeled by Daniel Y. Takahashi and colleauges. See [Takahashi, D. Y., Fenley, A. R., Teramoto, Y., Narayanan, D. Z., Borjon, J. I., Holmes, P., & Ghazanfar, A. A. (2015). The developmental dynamics of marmoset monkey vocal production. Science, 349(6249), 734-738.](https://doi.org/10.1126/science.aab1058) for details.
 
 ## Installation
 
