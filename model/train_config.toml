@@ -1,0 +1,41 @@
+[PREP]
+data_dir = "G:/dados_completo/all_train"
+output_dir = "./data/preprocessed"
+audio_format = "wav"
+spect_output_dir = "./data/preprocessed/spec"
+annot_format = "simple-seq"
+labelset = "prtmc"
+train_dur = 72400
+val_dur = 12700
+test_dur = 0
+
+[SPECT_PARAMS]
+fft_size = 1024
+step_size = 480
+freq_cutoffs = [ 750, 18000,]
+transform_type = "log_spect"
+spect_key = "s"
+freqbins_key = "f"
+timebins_key = "t"
+audio_path_key = "audio_path"
+
+[DATALOADER]
+window_size = 800
+
+[TRAIN]
+device = "cuda"
+root_results_dir = "results/train"
+models = [ "TweetyNet",]
+num_epochs = 2
+batch_size = 128
+num_workers = 12
+normalize_spectrograms = true
+val_step = 40
+ckpt_step = 100
+csv_path = "data\\preprocessed\\all_train_prep_231030_141207.csv"
+
+[TweetyNet.optimizer]
+lr = 0.001
+
+[TweetyNet.network]
+hidden_size = 512
