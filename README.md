@@ -29,7 +29,7 @@ Normalized confusion matrix of the model on validation data calls.
 
 ## Installation
 
-> Install [vak](https://github.com/vocalpy/vak.git) version >= 0.8.
+> Install [vak](https://vak.readthedocs.io/en/latest/get_started/installation.html) version >= 0.8.
 
 ## Use
 
